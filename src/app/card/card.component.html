@@ -1,0 +1,27 @@
+<mat-card class="example-card">
+    <mat-card-header >
+        <div mat-card-avatar [style.background-image]="'url('+photo.user.profile_image.medium+')'"
+            class="example-header-image" (click)="goToLink(photo.user.links.html)" ></div>
+        <mat-card-title>{{photo.user.username}}</mat-card-title>
+        <mat-card-subtitle>{{photo.user.name}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{photo.urls.regular}}" style="margin-bottom: 0;" (click)="goToLink(photo.links.html)">
+    <mat-card-actions style="padding: 0;">
+        <button mat-icon-button  (click)="favClicked=!favClicked">
+            <mat-icon>{{favClicked?'favorite' : 'favorite_outline'}}</mat-icon>
+        </button>
+        <button mat-icon-button >
+            <mat-icon>chat_bubble_outline</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon>send</mat-icon>
+        </button>
+    </mat-card-actions>
+    <mat-card-content>
+        <p>
+            <strong>{{photo.user.username}}</strong> {{photo.alt_description}}
+        </p>
+        <p class="date">{{photo.created_at | date}}</p>
+    </mat-card-content>
+
+</mat-card>

@@ -11,18 +11,35 @@ body {
     background-color: #1b1b1b;
 }
 
-.content{
+.content {
     background: rgb(39, 39, 39);
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
     height: 100vh;
-  }
-  @media (min-width: 600px) {
-    .content{
-      margin: 2em auto;
-      height: calc(100vh - 4em);
-      border: 1px rgb(105, 105, 105) solid;
-      border-radius: 3px;
+}
+@media (min-width: 600px) {
+    .content {
+        margin: 2em auto;
+        height: calc(100vh - 6em);
+        border: 1px rgb(105, 105, 105) solid;
+        border-radius: 3px;
+        overflow-y: scroll;
     }
-  }
+    body{
+        overflow: hidden;
+    }
+    .content{
+        position: relative;
+    }
+    
+    .test{
+        position: absolute;
+        top: 0;
+    }
+    .header{
+        max-width: 600px;
+        position: fixed;
+        z-index: 100;
+    }
+}
