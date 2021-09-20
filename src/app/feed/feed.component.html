@@ -15,16 +15,60 @@
             </div>
         </div>
     </div>
-    <div class="desktop-m" ></div>
-    <!-- <div *ngIf="photos.length > 0"> -->
+    <div class="desktop-m"></div>
+    <div *ngIf="!photoError">
         <app-card [photo]="photo" *ngFor="let photo of photos"></app-card>
-    <!-- </div> -->
+    </div>
+    
+    <div *ngIf="photoError" class="spoty"> 
+        <mat-card class="example-card">
+            <mat-card-header >
+                <div mat-card-avatar [style.background-image]="'url(https://florianvladimir.github.io/chunnt-flo-id-aare/assets/pofilbild.jpg)'"
+                    class="example-header-image" ></div>
+                <mat-card-title>Florian Moser</mat-card-title>
+                <mat-card-subtitle>@florianvladimir</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://cdn-icons-png.flaticon.com/512/194/194191.png" style="margin-bottom: 0;">
+            <mat-card-content>
+                <h2>Ups e muus het ds kabu wo zude bilder füert aakanberert. I probiere ds Problem so schnell wie müglech ds flikä!</h2>
+            </mat-card-content>      
+        </mat-card>
+    </div>
+
+    <div class="spoty">
+        <mat-card class="example-card">
+            <mat-card-header >
+                <div mat-card-avatar [style.background-image]="'url(https://florianvladimir.github.io/chunnt-flo-id-aare/assets/pofilbild.jpg)'"
+                    class="example-header-image" ></div>
+                <mat-card-title>Florian Moser</mat-card-title>
+                <mat-card-subtitle>@florianvladimir</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <iframe src="https://open.spotify.com/embed/playlist/3KiaHpIvtM6dq00H0wYl4w?theme=0" width="100%" height="380"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </mat-card-content>
+            <mat-card-actions style="padding: 0;">
+                <button mat-icon-button  (click)="favClicked=!favClicked">
+                    <mat-icon>{{favClicked?'favorite' : 'favorite_outline'}}</mat-icon>
+                </button>
+                <button mat-icon-button >
+                    <mat-icon>chat_bubble_outline</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon>send</mat-icon>
+                </button>
+            </mat-card-actions>       
+        </mat-card>
+    </div>
     
 
-    <div class="d-flex button-row">
+    <div class="d-flex button-row" *ngIf="!photoError">
         <button mat-flat-button (click)="getPhotos('switzerland')">more home</button>
         <button mat-flat-button (click)="getPhotos('kitten')">more kitten</button>
     </div>
-    
+
+
+    <p style="text-align: center;">flinsta het nüt z tüe mit instsgram</p>
 
 </div>

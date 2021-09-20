@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UnsplashService } from '../service/unsplash.service';
 import { Photo } from '../model/photo.interface'
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-feed',
@@ -11,6 +12,10 @@ export class FeedComponent implements OnInit {
 
   public photos: Photo[];
 
+  public hasPhotoError = true;
+
+  public favClicked = true;
+
   constructor(private unsplashService: UnsplashService) { }
 
   ngOnInit(): void {
@@ -20,6 +25,7 @@ export class FeedComponent implements OnInit {
 
   private firstLoading(){
     let home = this.getLocalStorage().switzerland;
+    this.hasPhotoError = false;
     this.unsplashService.getImage(home.current, "Switzerland").subscribe(photos => {
       
       
@@ -30,12 +36,15 @@ export class FeedComponent implements OnInit {
       save.switzerland = home;
       this.setLocaleStorage(save);
       console.log(photos);
+    }, error => {
+      this.photoError(error)
+      
     })
   }
 
   getPhotos(query: string) {
     let obj = this.getLocalStorage()[query];
-    console.log(obj);
+    this.hasPhotoError = false;
     this.unsplashService.getImage(obj.current, query).subscribe(photos => {
 
       this.photos.push(...photos['results']);
@@ -46,6 +55,9 @@ export class FeedComponent implements OnInit {
       save[query] = obj;
       this.setLocaleStorage(save);
 
+    }, error => {
+      this.photoError(error)
+      
     })
   }
 
@@ -71,6 +83,10 @@ export class FeedComponent implements OnInit {
 
   setLocaleStorage(item: currentPage){
     localStorage.setItem('flinsta_pages', JSON.stringify(item));
+  }
+
+  photoError(error){
+    this.hasPhotoError = true;
   }
 
 }
