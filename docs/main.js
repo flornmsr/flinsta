@@ -538,7 +538,7 @@ class UnsplashService {
         this.http = http;
     }
     getImage(page, query) {
-        if (src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].production) {
+        if (src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].useApi) {
             return this.http.get(`https://api.unsplash.com/search/photos?client_id=${src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].accessKey}&query=${query}&page=${page}`);
         }
         else {
@@ -565,11 +565,9 @@ UnsplashService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineI
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
+    useApi: true,
     accessKey: "MbsxsvqvyDgk3MpIzN7j8vy1xqLdzOc_pQ3Om5ZkizQ",
     fakePhoto: {
         "created_at": "2018-03-10T11:20:58-05:00",
@@ -590,14 +588,6 @@ const environment = {
         }
     }
 };
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 
 
 /***/ }),

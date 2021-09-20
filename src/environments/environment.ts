@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  useApi: false,
   accessKey: "MbsxsvqvyDgk3MpIzN7j8vy1xqLdzOc_pQ3Om5ZkizQ",
   fakePhoto: {
     "created_at": "2018-03-10T11:20:58-05:00",

@@ -11,7 +11,7 @@ export class UnsplashService {
   constructor(private http: HttpClient) { }
 
   getImage(page: number, query: string): Observable<Photo[]> {
-    if (environment.production) {
+    if (environment.useApi) {
       return this.http.get<Photo[]>(`https://api.unsplash.com/search/photos?client_id=${environment.accessKey}&query=${query}&page=${page}`);
     }
     else {
