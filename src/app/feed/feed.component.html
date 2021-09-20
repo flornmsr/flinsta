@@ -16,11 +16,11 @@
         </div>
     </div>
     <div class="desktop-m"></div>
-    <div *ngIf="!photoError">
+    <div *ngIf="!hasPhotoError">
         <app-card [photo]="photo" *ngFor="let photo of photos"></app-card>
     </div>
     
-    <div *ngIf="photoError" class="spoty"> 
+    <div *ngIf="hasPhotoError" class="spoty"> 
         <mat-card class="example-card">
             <mat-card-header >
                 <div mat-card-avatar [style.background-image]="'url(https://florianvladimir.github.io/chunnt-flo-id-aare/assets/pofilbild.jpg)'"
@@ -63,7 +63,7 @@
     </div>
     
 
-    <div class="d-flex button-row" *ngIf="!photoError">
+    <div class="d-flex button-row" *ngIf="!hasPhotoError">
         <button mat-flat-button (click)="getPhotos('switzerland')">more home</button>
         <button mat-flat-button (click)="getPhotos('kitten')">more kitten</button>
     </div>

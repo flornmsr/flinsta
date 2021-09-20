@@ -12,7 +12,7 @@ export class FeedComponent implements OnInit {
 
   public photos: Photo[];
 
-  public hasPhotoError = true;
+  public hasPhotoError = false;
 
   public favClicked = true;
 
@@ -37,8 +37,8 @@ export class FeedComponent implements OnInit {
       this.setLocaleStorage(save);
       console.log(photos);
     }, error => {
+      console.log("dinne");
       this.photoError(error)
-      
     })
   }
 
@@ -56,6 +56,7 @@ export class FeedComponent implements OnInit {
       this.setLocaleStorage(save);
 
     }, error => {
+      console.log("dinne");
       this.photoError(error)
       
     })
@@ -86,6 +87,7 @@ export class FeedComponent implements OnInit {
   }
 
   photoError(error){
+    console.log(error)
     this.hasPhotoError = true;
   }
 
