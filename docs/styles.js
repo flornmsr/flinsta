@@ -486,8 +486,8 @@ module.exports = content.locals || {};
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Florian\IdeaProjects\flinsta\node_modules\@angular\material\prebuilt-themes\pink-bluegrey.css */"./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css");
-module.exports = __webpack_require__(/*! C:\Users\Florian\IdeaProjects\flinsta\src\styles.scss */"./src/styles.scss");
+__webpack_require__(/*! /home/florian/Dokumente/it-stuff/flinsta/node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css */"./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css");
+module.exports = __webpack_require__(/*! /home/florian/Dokumente/it-stuff/flinsta/src/styles.scss */"./src/styles.scss");
 
 
 /***/ })
