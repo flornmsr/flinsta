@@ -7,10 +7,17 @@
     color: white;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    p{
+        margin: 0;
+        font-family: "Roboto", cursive;
+        font-size: 1.15em;
+    }
 
     .icons {
         margin-right: 1em;
-        margin-left: auto;
+        // margin-left: auto;
         .my-icon {
             margin: 0.25em 0.3em;
         }

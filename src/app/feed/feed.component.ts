@@ -16,24 +16,29 @@ export class FeedComponent implements OnInit {
 
   public favClicked = true;
 
+  searchQueryCount = 0;
+
+  countdown = '';
+
   constructor(private unsplashService: UnsplashService) { }
 
   ngOnInit(): void {
 
     this.firstLoading();
+    this.setCountdown();
   }
 
   private firstLoading(){
-    let home = this.getLocalStorage().switzerland;
+    let home = this.getLocalStorage().bern;
     this.hasPhotoError = false;
-    this.unsplashService.getImage(home.current, "Switzerland").subscribe(photos => {
+    this.unsplashService.getImage(home.current, "bern").subscribe(photos => {
       
       
       this.photos = photos['results'];
       home.max = photos['total_pages'];
       home.current = (home.current+1)%home.max;
       let save = this.getLocalStorage();
-      save.switzerland = home;
+      save.bern = home;
       this.setLocaleStorage(save);
       console.log(photos);
     }, error => {
@@ -42,7 +47,13 @@ export class FeedComponent implements OnInit {
     })
   }
 
-  getPhotos(query: string) {
+  getPhotos(query?: string) {
+    if(!query) {
+      query = this.searchQueryCount%2 == 0 ? 'alpstein' : 'bern';
+      console.log(query)
+      this.searchQueryCount++;
+    }
+
     let obj = this.getLocalStorage()[query];
     this.hasPhotoError = false;
     this.unsplashService.getImage(obj.current, query).subscribe(photos => {
@@ -69,7 +80,11 @@ export class FeedComponent implements OnInit {
     }
     else{
       return {
-        switzerland:{
+        bern:{
+          current: 1,
+          max: null
+        },
+        alpstein:{
           current: 1,
           max: null
         },
@@ -91,10 +106,42 @@ export class FeedComponent implements OnInit {
     this.hasPhotoError = true;
   }
 
+  setCountdown() {
+    var countDown = new Date('2025-04-26T17:00:00.000Z').getTime();
+
+    setInterval(() => {
+
+        var currtentTime = new Date().getTime();
+
+
+        var difference = countDown - currtentTime;
+
+        var dayMillis = 1000 * 60 * 60 * 24;
+        var hourMillis = dayMillis / 24;
+        var minMillis = hourMillis / 60;
+
+        var days = Math.floor(difference / dayMillis)
+        var hours = Math.floor((difference % dayMillis) / hourMillis)
+        var minutes = Math.floor((difference % hourMillis) / minMillis)
+        var seconds = Math.floor(difference % minMillis / 1000);
+
+        this.countdown = `Noch ~${days} Tage`
+        
+    }, 1000)
+  }
+
+  
+
+
+
 }
 
 export interface currentPage{
-  switzerland:{
+  bern:{
+    current: number;
+    max: number;
+  },
+  alpstein: {
     current: number;
     max: number;
   }

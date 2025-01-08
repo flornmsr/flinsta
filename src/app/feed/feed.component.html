@@ -2,6 +2,7 @@
     <div class="test">
         <div class="header">
             <h1>flinsta</h1>
+            <p>{{countdown}}</p>
             <div class="icons">
                 <span class="material-icons my-icon">
                     add_box
@@ -38,15 +39,13 @@
     <div class="spoty">
         <mat-card class="example-card">
             <mat-card-header >
-                <div mat-card-avatar [style.background-image]="'url(https://florianvladimir.github.io/chunnt-flo-id-aare/assets/pofilbild.jpg)'"
+                <div mat-card-avatar [style.background-image]="'url(/assets/flo.png)'"
                     class="example-header-image" ></div>
                 <mat-card-title>Florian Moser</mat-card-title>
-                <mat-card-subtitle>@florianvladimir</mat-card-subtitle>
+                <mat-card-subtitle>@meyerhans&chäferli</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-                <iframe src="https://open.spotify.com/embed/playlist/3KiaHpIvtM6dq00H0wYl4w?theme=0" width="100%" height="380"
-                allowfullscreen=""
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0iBz65oWeYxHRuOqjFBgQc?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </mat-card-content>
             <mat-card-actions style="padding: 0;">
                 <button mat-icon-button  (click)="favClicked=!favClicked">
@@ -64,7 +63,7 @@
     
 
     <div class="d-flex button-row" *ngIf="!hasPhotoError">
-        <button mat-flat-button (click)="getPhotos('switzerland')">more home</button>
+        <button mat-flat-button (click)="getPhotos()">more home</button>
         <button mat-flat-button (click)="getPhotos('kitten')">more kitten</button>
     </div>
 
