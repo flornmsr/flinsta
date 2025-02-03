@@ -1,0 +1,16 @@
+<div class="image-container">
+    <img src="assets/bild.jpg" alt="Beispielbild" />
+    <div class="overlay" 
+    [style.width]="(getHeight()) + '%'" 
+    [style.height]="(getHeight()) + '%'" 
+    [style.top]="(100- getHeight())/2 + '%'" 
+    [style.left]="(100 - getHeight())/2  + '%'" 
+    >
+    <div class="container">
+        <h1>{{getInvProgress()}}</h1>
+    </div>
+    
+
+    </div>
+  </div>
+

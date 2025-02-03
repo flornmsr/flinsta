@@ -11,12 +11,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {UnsplashService} from './service/unsplash.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './card/card.component';
+import { ImageRevealComponent } from './image-reveal/image-reveal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FeedComponent,
-    CardComponent
+    CardComponent,
+    ImageRevealComponent
   ],
   imports: [
     BrowserModule,

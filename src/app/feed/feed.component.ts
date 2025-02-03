@@ -19,6 +19,7 @@ export class FeedComponent implements OnInit {
   searchQueryCount = 0;
 
   countdown = '';
+  progress = 0;
 
   constructor(private unsplashService: UnsplashService) { }
 
@@ -126,6 +127,9 @@ export class FeedComponent implements OnInit {
         var seconds = Math.floor(difference % minMillis / 1000);
 
         this.countdown = `Noch ~${days} Tage`
+
+        this.progress = Math.round((100-(difference/(105*dayMillis))*100)*100) / 100;
+        // this.progress = 99
         
     }, 1000)
   }

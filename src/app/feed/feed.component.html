@@ -17,6 +17,7 @@
         </div>
     </div>
     <div class="desktop-m"></div>
+    <app-image-reveal [progress]="progress"></app-image-reveal>
     <div *ngIf="!hasPhotoError">
         <app-card [photo]="photo" *ngFor="let photo of photos"></app-card>
     </div>
