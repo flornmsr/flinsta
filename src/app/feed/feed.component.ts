@@ -126,7 +126,7 @@ export class FeedComponent implements OnInit {
         var minutes = Math.floor((difference % hourMillis) / minMillis)
         var seconds = Math.floor(difference % minMillis / 1000);
 
-        this.countdown = `Noch ${days} Tage ${hours}:${minutes}:${seconds}`
+        this.countdown = `Noch ${days} Tage & ${hours}:${minutes}:${seconds}`
 
         this.progress = Math.round((100-(difference/(105*dayMillis))*100)*100) / 100;
         // this.progress = 99

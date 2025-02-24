@@ -446,7 +446,7 @@ class FeedComponent {
         this.hasPhotoError = true;
     }
     setCountdown() {
-        var countDown = new Date('2025-04-26T17:00:00.000Z').getTime();
+        var countDown = new Date('2025-04-24T17:20:00.000Z').getTime();
         setInterval(() => {
             var currtentTime = new Date().getTime();
             var difference = countDown - currtentTime;
@@ -457,7 +457,7 @@ class FeedComponent {
             var hours = Math.floor((difference % dayMillis) / hourMillis);
             var minutes = Math.floor((difference % hourMillis) / minMillis);
             var seconds = Math.floor(difference % minMillis / 1000);
-            this.countdown = `Noch ~${days} Tage`;
+            this.countdown = `Noch ${days} Tage & ${hours}:${minutes}:${seconds}`;
             this.progress = Math.round((100 - (difference / (105 * dayMillis)) * 100) * 100) / 100;
             // this.progress = 99
         }, 1000);
